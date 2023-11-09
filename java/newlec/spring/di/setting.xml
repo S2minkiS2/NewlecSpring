@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Exam exam = new NewlecExam(); 생성해보자 -->
+	<bean id="exam" class="newlec.spring.di.entity.NewlecExam" />
+	
+	<!-- ExamConsole console = new GridExamConsole(); 생성해보자 -->
+	<bean id="console" class="newlec.spring.di.ui.GridExamConsole">
+		<property name="exam" value="exam"></property>
+	</bean>
+	<!-- 위에 console.setExam(exam); 을 생성해보자 -->
+</beans>
