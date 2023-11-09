@@ -1,5 +1,8 @@
 package newlec.spring.di;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import newlec.spring.di.entity.Exam;
 import newlec.spring.di.entity.NewlecExam;
 import newlec.spring.di.ui.ExamConsole;
@@ -21,7 +24,9 @@ public class Program {
 		console.setExam(exam);  
 		*/
 		
-		ExamConsole console = ?;
+		ApplicationContext context = new ClassPathXmlApplicationContext("newlec/spring/di/setting.xml");
+		ExamConsole console = (ExamConsole) context.getBean("console");
+		
 		console.print();
 		
 	}

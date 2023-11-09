@@ -8,7 +8,7 @@
 	
 	<!-- ExamConsole console = new GridExamConsole(); 생성해보자 -->
 	<bean id="console" class="newlec.spring.di.ui.GridExamConsole">
+		<!--  console.setExam(exam); 을 생성해보자 -->
 		<property name="exam" value="exam"></property>
 	</bean>
-	<!-- 위에 console.setExam(exam); 을 생성해보자 -->
 </beans>
