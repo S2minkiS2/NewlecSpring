@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+	
+	<context:annotation-config />
+	<!-- Exam exam = new NewlecExam(); 생성해보자, 그리고 값도 p로 넣어보자 -->
+	<bean id="exam1" class="newlec.spring.di.entity.NewlecExam"  p:kor="80"  p:eng="60"  p:math="70" p:com="100"/>
+	<bean id="exam2" class="newlec.spring.di.entity.NewlecExam"  p:kor="50"  p:eng="50"  p:math="40" p:com="80"/>
+	
+	<!-- ExamConsole console = new GridExamConsole(); 생성해보자 -->
+	<bean id="console" class="newlec.spring.di.ui.GridExamConsole">
+		<!--  console.setExam(exam); 을 생성해보자 -->
+		<!-- <property name="exam" ref="exam"></property> --> <!-- 인젝션 -->
+	</bean>
+	
+	
+	<!-- ArrayList<>() 자료형으로 exams 를 만들어보자 -->
+<!--  
+	<bean id="exams" class="java.util.ArrayList" >
+		<constructor-arg>
+			<list>
+				
+				<bean class="newlec.spring.di.entity.NewlecExam" p:math="50" p:com="100">
+					<property name="kor" value="50" />
+				</bean>
+					
+					<ref bean="exam" />
+			</list>
+		</constructor-arg>
+	</bean>
+-->	
+
+
+	<!-- util을 이용해서 위 ArrayList<>()를 더 간략하게 만들어 봐자 -->
+<!-- 
+	<util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="newlec.spring.di.entity.NewlecExam" p:math="50" p:com="100">
+			<property name="kor" value="50" />
+		</bean>
+			<ref bean="exam" />
+	</util:list>
+-->
+	
+</beans>
